@@ -19,9 +19,16 @@ Example 2:
 Input: x = 3, y = 1
 Output: 1
   
-int hammingDistance(int x, int y){
-int dist = 0;
-    int z = 0;
-    for(z = x^y; z > 0; dist++, z &=(z-1));
-    return dist;  
-}  
+class Solution {
+    public int hammingDistance(int x, int y) 
+    {
+        int x1 = x^y;
+        int distance = 0;
+        while (x1 > 0) {
+            if (x1 % 2 != 0) 
+                distance++;
+            x1 >>= 1;
+        }
+        return distance;
+    }
+}
